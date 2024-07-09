@@ -15,6 +15,8 @@ export function transformJSON(
 		const inputObj: JsonObject = JSON.parse(inputJSON);
 
 		const mergedObj = finaldata(inputObj)
+		let domain = mergedObj['context.domain'].split(":")[1]
+
 		const qrObj = {
 			...mergedObj,
 			...additionalValues,
@@ -26,7 +28,8 @@ export function transformJSON(
 			.join("&");
 
 		// Construct the final beckn URL
-		const becknURL = `beckn://ondc?${queryString}`;
+		const becknURL = `beckn://${domain}.ondc?${queryString}`;
+		console.log("🚀 ~ becknURL:", becknURL)
 		return becknURL;
 	} catch (error) {
 		console.error("Error parsing JSON:", (error as Error).message);

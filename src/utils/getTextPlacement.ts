@@ -46,9 +46,9 @@ export const getTextPlacement = (
 			text,
 			Math.floor((maxX - minX) / (totalTextWidth / text.length))
 		);
-    console.log("FONT SIZE BEFORE", fontSize)
+    // console.log("FONT SIZE BEFORE", fontSize)
 		fontSize = fontSize - Math.max(1 * (dividedText.length/2), 2);
-    console.log("FONT SIZE AFTER", fontSize)
+    // console.log("FONT SIZE AFTER", fontSize)
 		lineHeight = font.heightAtSize(fontSize);
     initialY = dividedText.length > 2 ? initialY + lineHeight/2 : initialY;
     dividedText = dividedText.length > 3 ? [...dividedText.slice(0,3), dividedText[3] + "..."]: dividedText;
