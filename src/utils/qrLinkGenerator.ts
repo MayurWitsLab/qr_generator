@@ -15,7 +15,7 @@ export function transformJSON(
 		const inputObj: JsonObject = JSON.parse(inputJSON);
 
 		const mergedObj = finaldata(inputObj)
-		let domain = mergedObj['context.domain'].split(":")[1]
+		let domain = mergedObj['context.domain'].split(":")[1].toLowerCase()
 
 		const qrObj = {
 			...mergedObj,
